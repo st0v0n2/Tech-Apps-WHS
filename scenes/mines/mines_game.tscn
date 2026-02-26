@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://minesgame001"]
+
+[ext_resource type="Script" uid="uid://c121xxonlrnka" path="res://scenes/mines/mines_game.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://betinput001" path="res://scenes/components/bet_input.tscn" id="2_bet"]
+[ext_resource type="PackedScene" uid="uid://c16pqe1eoqhtg" path="res://scenes/components/fairness_panel.tscn" id="3_fairness"]
+[ext_resource type="PackedScene" uid="uid://minestile001" path="res://scenes/mines/mines_tile.tscn" id="4_tile"]
+
+[node name="MinesGame" type="Control" unique_id=1244689400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=241178283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.09, 0.11, 1)
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=307743751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="HBoxContainer" parent="MainLayout" unique_id=1786185751]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MainLayout/Header" unique_id=1415692048]
+layout_mode = 2
+text = "< Back"
+
+[node name="Title" type="Label" parent="MainLayout/Header" unique_id=509045560]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "MINES"
+horizontal_alignment = 1
+
+[node name="BalanceDisplay" type="Label" parent="MainLayout/Header" unique_id=624632424]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "10,000"
+
+[node name="BetInput" parent="MainLayout" unique_id=608581047 instance=ExtResource("2_bet")]
+layout_mode = 2
+
+[node name="Settings" type="HBoxContainer" parent="MainLayout" unique_id=1962769214]
+layout_mode = 2
+alignment = 1
+
+[node name="MinesLabel" type="Label" parent="MainLayout/Settings" unique_id=1297560001]
+layout_mode = 2
+text = "Number of Mines:"
+
+[node name="MinesCount" type="SpinBox" parent="MainLayout/Settings" unique_id=392654890]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 24.0
+value = 3.0
+rounded = true
+
+[node name="PlayButton" type="Button" parent="MainLayout" unique_id=1951095139]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "PLAY"
+
+[node name="GridContainer" type="GridContainer" parent="MainLayout" unique_id=1542686402]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="Tile1" parent="MainLayout/GridContainer" unique_id=1348140007 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile2" parent="MainLayout/GridContainer" unique_id=384360625 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile3" parent="MainLayout/GridContainer" unique_id=1542077596 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile4" parent="MainLayout/GridContainer" unique_id=610468556 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile5" parent="MainLayout/GridContainer" unique_id=802307343 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile6" parent="MainLayout/GridContainer" unique_id=1888575928 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile7" parent="MainLayout/GridContainer" unique_id=608675487 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile8" parent="MainLayout/GridContainer" unique_id=2087973854 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile9" parent="MainLayout/GridContainer" unique_id=1663598349 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile10" parent="MainLayout/GridContainer" unique_id=435034172 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile11" parent="MainLayout/GridContainer" unique_id=1871173563 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile12" parent="MainLayout/GridContainer" unique_id=753452030 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile13" parent="MainLayout/GridContainer" unique_id=659789194 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile14" parent="MainLayout/GridContainer" unique_id=1914178682 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile15" parent="MainLayout/GridContainer" unique_id=1920490090 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile16" parent="MainLayout/GridContainer" unique_id=387362955 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile17" parent="MainLayout/GridContainer" unique_id=1749812676 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile18" parent="MainLayout/GridContainer" unique_id=1083064372 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile19" parent="MainLayout/GridContainer" unique_id=472838022 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile20" parent="MainLayout/GridContainer" unique_id=409890503 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile21" parent="MainLayout/GridContainer" unique_id=776995214 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile22" parent="MainLayout/GridContainer" unique_id=106890498 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile23" parent="MainLayout/GridContainer" unique_id=989550185 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile24" parent="MainLayout/GridContainer" unique_id=883193546 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="Tile25" parent="MainLayout/GridContainer" unique_id=1567988010 instance=ExtResource("4_tile")]
+layout_mode = 2
+
+[node name="GameInfo" type="HBoxContainer" parent="MainLayout" unique_id=862616830]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="MainLayout/GameInfo" unique_id=442192187]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Current: 0.00x"
+
+[node name="NextMultiplierLabel" type="Label" parent="MainLayout/GameInfo" unique_id=1086302004]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Next: 1.03x"
+
+[node name="CashOutButton" type="Button" parent="MainLayout/GameInfo" unique_id=153348934]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "CASH OUT"
+
+[node name="FairnessPanel" parent="MainLayout" unique_id=716762438 instance=ExtResource("3_fairness")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[connection signal="pressed" from="MainLayout/Header/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MainLayout/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainLayout/GameInfo/CashOutButton" to="." method="_on_cash_out_pressed"]

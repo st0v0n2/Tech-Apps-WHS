@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3 uid="uid://slidegame001"]
+
+[ext_resource type="Script" path="res://scenes/slide/slide_game.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://betinput001" path="res://scenes/components/bet_input.tscn" id="2_bet"]
+[ext_resource type="PackedScene" uid="uid://fairnesspanel001" path="res://scenes/components/fairness_panel.tscn" id="3_fairness"]
+
+[node name="SlideGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.09, 0.11, 1.0)
+
+[node name="MainLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Header" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MainLayout/Header"]
+layout_mode = 2
+text = "< Back"
+
+[node name="Title" type="Label" parent="MainLayout/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "SLIDE"
+horizontal_alignment = 1
+
+[node name="BalanceDisplay" type="Label" parent="MainLayout/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "10,000"
+
+[node name="BetInput" parent="MainLayout" instance=ExtResource("2_bet")]
+layout_mode = 2
+
+[node name="Settings" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 2
+alignment = 1
+
+[node name="TargetLabel" type="Label" parent="MainLayout/Settings"]
+layout_mode = 2
+text = "Target Multiplier:"
+
+[node name="TargetMultiplier" type="SpinBox" parent="MainLayout/Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.01
+max_value = 1000000.0
+value = 2.0
+step = 0.01
+allow_greater = true
+suffix = "x"
+
+[node name="WinChanceLabel" type="Label" parent="MainLayout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Win Chance: 49.50%"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainLayout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "PLAY"
+
+[node name="ResultPanel" type="Panel" parent="MainLayout"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/ResultPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ResultLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "WIN!"
+horizontal_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Target: 2.00x | Actual: 3.45x"
+horizontal_alignment = 1
+
+[node name="WinningsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+100 coins"
+horizontal_alignment = 1
+
+[node name="ShowFairnessButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer"]
+layout_mode = 2
+text = "Verify Fairness"
+
+[node name="PlayAgainButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="FairnessPanel" parent="MainLayout" instance=ExtResource("3_fairness")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[connection signal="value_changed" from="MainLayout/Settings/TargetMultiplier" to="." method="_on_target_changed"]
+[connection signal="pressed" from="MainLayout/Header/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MainLayout/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainLayout/ResultPanel/VBoxContainer/ShowFairnessButton" to="." method="_on_show_fairness_pressed"]
+[connection signal="pressed" from="MainLayout/ResultPanel/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_pressed"]

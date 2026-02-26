@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://minestile001"]
+
+[node name="MinesTile" type="Button" unique_id=1851681076]
+custom_minimum_size = Vector2(60, 60)
+toggle_mode = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1229091515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 0.5, 0.8, 1)
