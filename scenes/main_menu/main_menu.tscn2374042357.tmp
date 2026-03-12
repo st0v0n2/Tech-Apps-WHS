@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://mainmenu001"]
+
+[ext_resource type="Script" uid="uid://bi0dsmk3c0kyf" path="res://scenes/main_menu/main_menu.gd" id="1_script"]
+
+[node name="MainMenu" type="Control" unique_id=1629572629]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1210515490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11, 0.12, 0.14, 1)
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1836347987]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="MainLayout" unique_id=646223489]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "FAKE CASINO"
+horizontal_alignment = 1
+
+[node name="BalanceDisplay" type="Label" parent="MainLayout" unique_id=971643557]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Balance: 10,000 coins"
+horizontal_alignment = 1
+
+[node name="GameButtons" type="HBoxContainer" parent="MainLayout" unique_id=711757538]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MinesButton" type="Button" parent="MainLayout/GameButtons" unique_id=1529444400]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MINES"
+
+[node name="SlideButton" type="Button" parent="MainLayout/GameButtons" unique_id=668994889]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SLIDE"
+
+[node name="ResetBalanceButton" type="Button" parent="MainLayout" unique_id=1321964490]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset Balance (10,000)"
+
+[node name="FairnessButton" type="Button" parent="MainLayout" unique_id=540330886]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fairness Info"
+
+[node name="FairnessPanel" type="Panel" parent="." unique_id=199253404]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FairnessPanel" unique_id=64478151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="FairnessPanel/VBoxContainer" unique_id=748395531]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Provably Fair System"
+horizontal_alignment = 1
+
+[node name="ServerHashLabel" type="Label" parent="FairnessPanel/VBoxContainer" unique_id=801145803]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Server Seed Hash: ..."
+autowrap_mode = 3
+
+[node name="ClientSeedLabel" type="Label" parent="FairnessPanel/VBoxContainer" unique_id=1880759321]
+layout_mode = 2
+text = "Client Seed (editable):"
+
+[node name="ClientSeedInput" type="LineEdit" parent="FairnessPanel/VBoxContainer" unique_id=124029131]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Enter client seed or generate random"
+
+[node name="GenerateClientSeedButton" type="Button" parent="FairnessPanel/VBoxContainer" unique_id=1832997293]
+layout_mode = 2
+text = "Generate Random Client Seed"
+
+[node name="NonceLabel" type="Label" parent="FairnessPanel/VBoxContainer" unique_id=1096383695]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Current Nonce: 0"
+
+[node name="Spacer" type="Control" parent="FairnessPanel/VBoxContainer" unique_id=863368128]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseButton" type="Button" parent="FairnessPanel/VBoxContainer" unique_id=1097429491]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+
+[connection signal="pressed" from="MainLayout/GameButtons/MinesButton" to="." method="_on_mines_button_pressed"]
+[connection signal="pressed" from="MainLayout/GameButtons/SlideButton" to="." method="_on_slide_button_pressed"]
+[connection signal="pressed" from="MainLayout/ResetBalanceButton" to="." method="_on_reset_balance_pressed"]
+[connection signal="pressed" from="MainLayout/FairnessButton" to="." method="_on_fairness_button_pressed"]
+[connection signal="pressed" from="FairnessPanel/VBoxContainer/GenerateClientSeedButton" to="." method="_on_generate_client_seed_pressed"]
+[connection signal="pressed" from="FairnessPanel/VBoxContainer/CloseButton" to="." method="_on_close_fairness_pressed"]

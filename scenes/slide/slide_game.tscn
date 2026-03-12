@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://slidegame001"]
+[gd_scene format=3 uid="uid://slidegame001"]
 
-[ext_resource type="Script" path="res://scenes/slide/slide_game.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cu5hlrq301a22" path="res://scenes/slide/slide_game.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://betinput001" path="res://scenes/components/bet_input.tscn" id="2_bet"]
-[ext_resource type="PackedScene" uid="uid://fairnesspanel001" path="res://scenes/components/fairness_panel.tscn" id="3_fairness"]
+[ext_resource type="PackedScene" uid="uid://c16pqe1eoqhtg" path="res://scenes/components/fairness_panel.tscn" id="3_fairness"]
 
-[node name="SlideGame" type="Control"]
+[node name="SlideGame" type="Control" unique_id=1535084990]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,16 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1764472735]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08, 0.09, 0.11, 1.0)
+color = Color(0.08, 0.09, 0.11, 1)
 
-[node name="MainLayout" type="VBoxContainer" parent="."]
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1393141516]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,55 +36,55 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Header" type="HBoxContainer" parent="MainLayout"]
+[node name="Header" type="HBoxContainer" parent="MainLayout" unique_id=1466046588]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="MainLayout/Header"]
+[node name="BackButton" type="Button" parent="MainLayout/Header" unique_id=1444640694]
 layout_mode = 2
 text = "< Back"
 
-[node name="Title" type="Label" parent="MainLayout/Header"]
+[node name="Title" type="Label" parent="MainLayout/Header" unique_id=325702111]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "SLIDE"
 horizontal_alignment = 1
 
-[node name="BalanceDisplay" type="Label" parent="MainLayout/Header"]
+[node name="BalanceDisplay" type="Label" parent="MainLayout/Header" unique_id=2111710048]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "10,000"
 
-[node name="BetInput" parent="MainLayout" instance=ExtResource("2_bet")]
+[node name="BetInput" parent="MainLayout" unique_id=618118338 instance=ExtResource("2_bet")]
 layout_mode = 2
 
-[node name="Settings" type="HBoxContainer" parent="MainLayout"]
+[node name="Settings" type="HBoxContainer" parent="MainLayout" unique_id=1036756926]
 layout_mode = 2
 alignment = 1
 
-[node name="TargetLabel" type="Label" parent="MainLayout/Settings"]
+[node name="TargetLabel" type="Label" parent="MainLayout/Settings" unique_id=672390920]
 layout_mode = 2
 text = "Target Multiplier:"
 
-[node name="TargetMultiplier" type="SpinBox" parent="MainLayout/Settings"]
+[node name="TargetMultiplier" type="SpinBox" parent="MainLayout/Settings" unique_id=99228207]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.01
 max_value = 1000000.0
-value = 2.0
 step = 0.01
+value = 2.01
 allow_greater = true
 suffix = "x"
 
-[node name="WinChanceLabel" type="Label" parent="MainLayout"]
+[node name="WinChanceLabel" type="Label" parent="MainLayout" unique_id=421374566]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Win Chance: 49.50%"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="MainLayout"]
+[node name="PlayButton" type="Button" parent="MainLayout" unique_id=412247592]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
@@ -92,14 +92,14 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
 text = "PLAY"
 
-[node name="ResultPanel" type="Panel" parent="MainLayout"]
+[node name="ResultPanel" type="Panel" parent="MainLayout" unique_id=1174774493]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/ResultPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/ResultPanel" unique_id=637916808]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,43 +112,43 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ResultLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+[node name="ResultLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer" unique_id=900921468]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "WIN!"
 horizontal_alignment = 1
 
-[node name="DetailsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+[node name="DetailsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer" unique_id=2124439150]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Target: 2.00x | Actual: 3.45x"
 horizontal_alignment = 1
 
-[node name="WinningsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer"]
+[node name="WinningsLabel" type="Label" parent="MainLayout/ResultPanel/VBoxContainer" unique_id=420266124]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+100 coins"
 horizontal_alignment = 1
 
-[node name="ShowFairnessButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer"]
+[node name="ShowFairnessButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer" unique_id=469499228]
 layout_mode = 2
 text = "Verify Fairness"
 
-[node name="PlayAgainButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer"]
+[node name="PlayAgainButton" type="Button" parent="MainLayout/ResultPanel/VBoxContainer" unique_id=1658042827]
 layout_mode = 2
 text = "Play Again"
 
-[node name="FairnessPanel" parent="MainLayout" instance=ExtResource("3_fairness")]
+[node name="FairnessPanel" parent="MainLayout" unique_id=1528613226 instance=ExtResource("3_fairness")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[connection signal="value_changed" from="MainLayout/Settings/TargetMultiplier" to="." method="_on_target_changed"]
 [connection signal="pressed" from="MainLayout/Header/BackButton" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="MainLayout/Settings/TargetMultiplier" to="." method="_on_target_changed"]
 [connection signal="pressed" from="MainLayout/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainLayout/ResultPanel/VBoxContainer/ShowFairnessButton" to="." method="_on_show_fairness_pressed"]
 [connection signal="pressed" from="MainLayout/ResultPanel/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_pressed"]

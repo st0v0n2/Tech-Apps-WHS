@@ -65,8 +65,8 @@ fake_casino/
 │       ├── fairness_panel.tscn
 │       └── fairness_panel.gd
 └── scripts/
-    └── utils/
-        └── math_helpers.gd
+	└── utils/
+		└── math_helpers.gd
 ```
 
 ## Fairness Verification Flow

@@ -18,9 +18,7 @@ boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 
 [autoload]
 
-GameState="*res://autoload/game_state.gd"
-CurrencyManager="*res://autoload/currency_manager.gd"
-FairnessSystem="*res://autoload/fairness_system.gd"
+CasinoManager="*uid://dgc41q17mgtfr"
 
 [display]
 
