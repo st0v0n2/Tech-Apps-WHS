@@ -3,7 +3,7 @@ extends Control
 # ================================================
 # MINES GAME - FINAL VERSION (GitHub .tscn structure)
 # Warnings fixed + separate current/next labels + 0% edge payouts + single CasinoManager
-# Provably-fair, Rainbet style, dynamic updates, zero errors
+# Provably-fair, Rainbet style, dynamic updates, zero errors :D
 # ================================================
 
 const GRID_SIZE: int = 25
